@@ -1,21 +1,6 @@
 import Image from 'next/image';
 import BackButton from '../components/BackButton';
 
-// interface Country {
-//     name: {
-//         common: string;
-//     };
-//     flags: {
-//         png: string;
-//     };
-//     population: number;
-//     region: string;
-//     subregion: string;
-//     capital?: string[];
-//     currencies?: { name: string }[];
-//     languages?: { [key: string]: string }[];
-// }
-
 async function getCountryData(codeOrName: string) {
     try {
         const res = await fetch(
@@ -39,16 +24,18 @@ async function getCountryData(codeOrName: string) {
     }
 }
 
-export default async function CountryDetails({
-    params,
-}: {
-    params: { country: string };
-}) {
+interface CountryDetailsProps {
+    params: Promise<{
+        country: string;
+    }>;
+}
+
+export default async function CountryDetails({ params }: CountryDetailsProps) {
+    const { country } = await params; // Await params before destructuring
+
+    const countryData = await getCountryData(country);
+
     try {
-        const { country: countryCode } = await params; // Await params before destructuring
-
-        const countryData = await getCountryData(countryCode);
-
         if (!countryData) {
             return (
                 <div className="text-center mt-8">
