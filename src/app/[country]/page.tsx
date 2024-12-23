@@ -66,84 +66,89 @@ export default async function CountryDetails({ params }: CountryDetailsProps) {
             : 'N/A';
 
         return (
-            <div className="flex flex-col w-full h-screen px-7 items-start justify-start bg-[#fafafa]">
+            <div className="flex flex-col w-full h-screen px-7 items-start justify-start bg-[#fafafa] dark:bg-[#202c36] lg:px-20 ">
                 <BackButton />
 
-                <div className="flex items-center justify-start w-full h-auto mt-[70px]">
-                    <Image
-                        src={flags.svg}
-                        alt={`Flag of ${name.common} flag`}
-                        width={319}
-                        height={250}
-                    />
-                </div>
-
-                <div>
-                    <p className="dark:text-[#fff] text-[#111517] text-[22px] font-extrabold leading-normal mt-6">
-                        {name.common}
-                    </p>
-
-                    <div className="mt-4 flex flex-col items-start justify-start w-full">
-                        <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
-                            Native name: &nbsp;
-                            <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
-                                {name.common}
-                                {/* You might want to use a native name */}
-                            </span>
-                        </p>
-
-                        <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
-                            Population: &nbsp;
-                            <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
-                                {population.toLocaleString()}
-                            </span>
-                        </p>
-
-                        <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
-                            Region: &nbsp;
-                            <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
-                                {region}
-                            </span>
-                        </p>
-
-                        <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
-                            Sub Region: &nbsp;
-                            <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
-                                {subregion}
-                            </span>
-                        </p>
-
-                        <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
-                            Capital: &nbsp;
-                            <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
-                                {capital ? capital[0] : 'N/A'}
-                            </span>
-                        </p>
+                <div className="lg:flex lg:w-full lg:items-center lg:justify-center  lg:gap-[144px] lg:flex-row md:flex md:flex-col md:items-center md:justify-start md:w-full">
+                    <div className="flex items-center justify-start w-full h-auto mt-[70px] md:justify-center">
+                        <Image
+                            src={flags.svg}
+                            alt={`Flag of ${name.common} flag`}
+                            width={319}
+                            height={250}
+                            className="lg:w-[560px] h-[484px]"
+                        />
                     </div>
-                </div>
 
-                <div className="mt-8">
-                    <div className="mt-4 flex flex-col items-start justify-start w-full">
-                        <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
-                            Currencies: &nbsp;
-                            <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
-                                {currencyList}
-                            </span>
-                        </p>
+                    <div className="lg:flex lg:items-center lg:justify-center lg:w-full  lg:gap-[117px]">
+                        <div>
+                            <p className="dark:text-[#fff] text-[#111517] text-[22px] lg:text-[42px] font-extrabold leading-normal mt-6">
+                                {name.common}
+                            </p>
 
-                        <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
-                            Demonym: &nbsp;
-                            <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
-                                {demonym || 'N/A'}
-                            </span>
-                        </p>
+                            <div className="mt-4 flex flex-col items-start justify-start w-full">
+                                <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
+                                    Native name: &nbsp;
+                                    <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
+                                        {name.common}
+                                        {/* You might want to use a native name */}
+                                    </span>
+                                </p>
 
-                        <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
-                            Languages: &nbsp;
-                            <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
-                                {languageList}
-                            </span>
-                        </p>
+                                <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
+                                    Population: &nbsp;
+                                    <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
+                                        {population.toLocaleString()}
+                                    </span>
+                                </p>
+
+                                <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
+                                    Region: &nbsp;
+                                    <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
+                                        {region}
+                                    </span>
+                                </p>
+
+                                <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
+                                    Sub Region: &nbsp;
+                                    <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
+                                        {subregion}
+                                    </span>
+                                </p>
+
+                                <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
+                                    Capital: &nbsp;
+                                    <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
+                                        {capital ? capital[0] : 'N/A'}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="mt-8 lg:mt-0">
+                            <div className="mt-4 flex flex-col items-start justify-start w-full">
+                                <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
+                                    Currencies: &nbsp;
+                                    <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
+                                        {currencyList}
+                                    </span>
+                                </p>
+
+                                <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
+                                    Demonym: &nbsp;
+                                    <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
+                                        {demonym || 'N/A'}
+                                    </span>
+                                </p>
+
+                                <p className="dark:text-[#fff] text-[#111517] text-sm font-semibold leading-8">
+                                    Languages: &nbsp;
+                                    <span className="dark:text-[#fff] text-[#111517] text-sm font-light leading-8">
+                                        {languageList}
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
